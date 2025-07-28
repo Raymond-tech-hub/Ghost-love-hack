@@ -1,0 +1,197 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <title>Ghost Lover - Menu</title>  
+  <style>  
+    body {  
+      margin: 0;  
+      font-family: 'Courier New', monospace;  
+      background: black;  
+      color: #00ffcc;  
+      display: flex;  
+      flex-direction: column;  
+      align-items: center;  
+      padding: 20px;  
+    }  
+  
+    header {  
+      width: 100%;  
+      text-align: center;  
+      margin-bottom: 30px;  
+    }  
+  
+    .logo {  
+      width: 50px;  
+      position: absolute;  
+      top: 10px;  
+      left: 10px;  
+    }  
+  
+    h1 {  
+      font-size: 2em;  
+      color: #00ffcc;  
+      text-shadow: 0 0 10px #00ffcc;  
+    }  
+  
+    .nav-buttons {  
+      display: flex;  
+      gap: 20px;  
+      margin-bottom: 20px;  
+    }  
+  
+    .nav-buttons button {  
+      padding: 10px 20px;  
+      background: transparent;  
+      border: 2px solid #00ffcc;  
+      color: #00ffcc;  
+      font-size: 16px;  
+      cursor: pointer;  
+      transition: 0.3s;  
+    }  
+  
+    .nav-buttons button:hover {  
+      background-color: #00ffcc;  
+      color: black;  
+    }  
+  
+    .section {  
+      display: none;  
+      flex-direction: column;  
+      gap: 10px;  
+      margin-top: 20px;  
+    }  
+  
+    .section button {  
+      padding: 10px;  
+      background: #111;  
+      border: 1px solid #00ffcc;  
+      color: #00ffcc;  
+      cursor: pointer;  
+    }  
+  
+    .modal {  
+      display: none;  
+      position: fixed;  
+      top: 10%;  
+      left: 50%;  
+      transform: translateX(-50%);  
+      width: 80%;  
+      background: #111;  
+      border: 2px solid #00ffcc;  
+      padding: 20px;  
+      color: #fff;  
+      z-index: 100;  
+    }  
+  
+    .modal h2 {  
+      margin-top: 0;  
+      color: #00ffcc;  
+    }  
+  
+    .modal button {  
+      margin-top: 15px;  
+      padding: 5px 10px;  
+      border: none;  
+      background: #00ffcc;  
+      color: black;  
+      cursor: pointer;  
+    }  
+
+    /* Secret Room Button */
+    .secret-btn {
+      margin-top: 40px;
+      padding: 12px 24px;
+      background: transparent;
+      border: 2px solid #00ffcc;
+      color: #00ffcc;
+      font-size: 16px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .secret-btn::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      box-shadow: 0 0 10px #00ffcc;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      border-radius: 4px;
+    }
+
+    .secret-btn:hover {
+      background-color: #00ffcc;
+      color: black;
+    }
+
+    .secret-btn:hover::after {
+      opacity: 1;
+    }
+  </style>  
+</head>  
+<body>  
+  
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="logo" />  
+  <header>  
+    <h1>Welcome to Ghost Lover Tools</h1>  
+  </header>  
+  
+  <div class="nav-buttons">  
+    <button onclick="toggleSection('methods')">Methods</button>  
+    <button onclick="toggleSection('tools')">Tools</button>  
+  </div>  
+  
+  <div id="methods" class="section">  
+    <button onclick="showModal('Phishing', 'Phishing is tricking users into revealing passwords by imitating a trusted site.')">Phishing</button>  
+    <button onclick="showModal('Keyloggers', 'Keyloggers record keystrokes to capture user inputs.')">Keyloggers</button>  
+    <button onclick="showModal('Brute Force', 'Brute Force attacks try many password combinations until they succeed.')">Brute Force</button>  
+    <button onclick="showModal('Social Engineering', 'Manipulating people to give up confidential info.')">Social Engineering</button>  
+  </div>  
+  
+  <div id="tools" class="section">  
+    <p>🔒 Tools are restricted. Contact <strong>@ghost_lover566</strong> on Instagram for access.</p>  
+  </div>  
+  
+  <div id="modal" class="modal">  
+    <h2 id="modalTitle">Title</h2>  
+    <p id="modalContent">Description here...</p>  
+    <button onclick="closeModal()">Close</button>  
+  </div>  
+
+  <!-- Secret Button at the Bottom -->
+  <button class="secret-btn" onclick="goToSecret()">Enter Secret Room</button>  
+
+  <script>  
+    function toggleSection(sectionId) {  
+      document.getElementById('methods').style.display = 'none';  
+      document.getElementById('tools').style.display = 'none';  
+      document.getElementById(sectionId).style.display = 'flex';  
+    }  
+  
+    function showModal(title, content) {  
+      document.getElementById('modalTitle').innerText = title;  
+      document.getElementById('modalContent').innerText = content;  
+      document.getElementById('modal').style.display = 'block';  
+    }  
+  
+    function closeModal() {  
+      document.getElementById('modal').style.display = 'none';  
+    }
+
+    function goToSecret() {
+      const button = document.querySelector('.secret-btn');
+      button.innerText = "Decrypting Code...";
+      button.disabled = true;
+      setTimeout(() => {
+        window.location.href = 'secret.html';
+      }, 1200);
+    }
+  </script>  
+  
+</body>  
+</html>
